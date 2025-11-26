@@ -18,7 +18,7 @@ inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 greedy = model.generate(
     **inputs,
     max_new_tokens=40,
-    do_sample=False      # greedy mode
+    do_sample=False      
 )
 print("\n[GREEDY]\n", tokenizer.decode(greedy[0], skip_special_tokens=True))
 
