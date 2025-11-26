@@ -13,8 +13,8 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 print("Loaded on:", model.hf_device_map)
 
-prompt = "User: what is gay?\nAssistant:"
-#prompt = "what is gay"
+prompt = "User: what is the capital of United States?\nAssistant:"
+#prompt = "what is the capital of United States?"
 inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
 output = model.generate(
