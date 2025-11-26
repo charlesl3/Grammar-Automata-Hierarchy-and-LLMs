@@ -6,3 +6,10 @@
 
 **`LoRA.py`**   — LoRA fine-tuning template
 
+**`Q_ATask.py`**   — Q&A prompting + next token generation prompting of LLM
+
+**`miniGPT_training.py`**   — manual mini-training of a decoder-only machine
+
+**`sampling.py`**   — sampling methods exploration, such as greedy, temperature, top-q, top-k 
+
+
