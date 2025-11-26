@@ -1,30 +1,10 @@
-"""
-Tiny GPT-style Decoder-Only Transformer (No type hints)
-
-What this script does:
-- Builds a small GPT-like model from scratch:
-    - token + positional embeddings
-    - decoder-style transformer blocks
-    - masked multi-head self-attention (causal)
-    - FFN, LayerNorm, residual connections
-    - LM head (trainable linear layer before softmax)
-- Trains on random toy data just to demonstrate:
-    - next-token prediction
-    - label shifting
-    - cross-entropy loss decreasing
-
-This is meant for understanding, not performance.
-"""
-
 import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
 
-# =====================
-# 1. Hyperparameters
-# =====================
+
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -41,9 +21,7 @@ num_steps    = 200      # training iterations
 lr           = 1e-3     # learning rate
 
 
-# =====================
-# 2. Causal Mask Helper
-# =====================
+
 
 def causal_mask(seq_len):
     """
@@ -58,9 +36,7 @@ def causal_mask(seq_len):
     return mask.view(1, 1, seq_len, seq_len)  # [1,1,L,L]
 
 
-# =====================
-# 3. Multi-Head Attention
-# =====================
+
 
 class MultiHeadSelfAttention(nn.Module):
     def __init__(self, d_model, num_heads):
@@ -80,42 +56,36 @@ class MultiHeadSelfAttention(nn.Module):
         x:    [B, L, d_model]
         mask: [1, 1, L, L]
         """
-        B, L, D = x.shape  # D = d_model
+        B, L, D = x.shape  
 
-        # Q, K, V: [B, L, d_model]
+
         q = self.W_q(x)
         k = self.W_k(x)
         v = self.W_v(x)
 
-        # Split heads: [B, L, d_model] -> [B, H, L, d_head]
         q = q.view(B, L, self.num_heads, self.d_head).transpose(1, 2)
         k = k.view(B, L, self.num_heads, self.d_head).transpose(1, 2)
         v = v.view(B, L, self.num_heads, self.d_head).transpose(1, 2)
-        # shapes: [B, H, L, d_head]
 
-        # Attention scores: QK^T / sqrt(d_head)
-        scores = q @ k.transpose(-2, -1) / math.sqrt(self.d_head)  # [B,H,L,L]
+        scores = q @ k.transpose(-2, -1) / math.sqrt(self.d_head)  
 
         # Add causal mask
-        scores = scores + mask  # broadcast [1,1,L,L]
+        scores = scores + mask  
 
-        # Softmax over keys dimension
-        attn = F.softmax(scores, dim=-1)  # [B,H,L,L]
 
-        # Weighted sum of V: [B,H,L,L] @ [B,H,L,d_head] -> [B,H,L,d_head]
+        attn = F.softmax(scores, dim=-1)  
+
+
         out = attn @ v
 
-        # Combine heads: [B,H,L,d_head] -> [B,L,D]
+
         out = out.transpose(1, 2).contiguous().view(B, L, D)
 
-        # Final projection
-        out = self.W_o(out)  # [B, L, d_model]
+
+        out = self.W_o(out)  
         return out
 
 
-# =====================
-# 4. Feed-Forward Network
-# =====================
 
 class FeedForward(nn.Module):
     def __init__(self, d_model, hidden_dim):
@@ -133,9 +103,7 @@ class FeedForward(nn.Module):
         return x
 
 
-# =====================
-# 5. Decoder Block (GPT-style)
-# =====================
+
 
 class DecoderBlock(nn.Module):
     def __init__(self, d_model, num_heads, ffn_hidden):
@@ -156,10 +124,6 @@ class DecoderBlock(nn.Module):
         out = h + self.ffn(self.ln2(h))       # [B, L, d_model]
         return out
 
-
-# =====================
-# 6. Tiny GPT Decoder-Only Model
-# =====================
 
 class TinyGPTDecoder(nn.Module):
     def __init__(self, vocab_size, d_model, num_heads,
@@ -211,9 +175,7 @@ class TinyGPTDecoder(nn.Module):
         return logits
 
 
-# =====================
-# 7. Toy Training Loop
-# =====================
+
 
 def generate_dummy_batch(batch_size, seq_len, vocab_size):
     """
