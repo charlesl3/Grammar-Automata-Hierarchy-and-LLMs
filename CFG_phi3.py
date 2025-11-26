@@ -82,7 +82,7 @@ for p in prefixes:
         correct += 1
 
 acc = correct / total
-print("\nAccuracy:", acc)
+print("\nAccuracy:", acc) #20%
 
 """
 Phi-3’s accuracy in this CFG next-token task depends strongly on the specific
