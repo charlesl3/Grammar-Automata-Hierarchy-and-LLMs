@@ -2,3 +2,5 @@
 
 **`CFG_gpt2.py`**   — Runs the same tests using GPT-2 for comparison.
 
+**`LoRA.py`**   — LoRA fine-tuning template
+
