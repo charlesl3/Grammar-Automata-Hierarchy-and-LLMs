@@ -82,7 +82,7 @@ for p in prefixes:
         correct += 1
 
 acc = correct / total
-print("\nAccuracy:", acc)
+print("\nAccuracy:", acc) #5%
 
 
 # GPT-2 performs extremely poorly on CFG next-token tests because it lacks instruction tuning
