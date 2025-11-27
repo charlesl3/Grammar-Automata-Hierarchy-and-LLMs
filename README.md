@@ -12,4 +12,7 @@
 
 **`sampling.py`**   — sampling methods exploration, such as greedy, temperature, top-q, top-k 
 
+**`Prefix_Next_generator.py`**   — given a grammar, helper functions to generate possible prefix sets (for future prompting) and allowed next tokens (as the ground truths)
+
+
 
