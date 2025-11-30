@@ -32,7 +32,9 @@ A minimal collection of scripts for testing LLM behavior on grammar and automata
 
 **`CFG_Full_mistral7b.py`** — Full CFG next-token evaluation using Mistral-7B.
 
-IXG/ — Full IXG Evaluation Scripts
+---
+
+## IXG/ — Full IXG Evaluation Scripts
 
 **`IXG_Full_GPT4oMini.py`** — Full IXG next-token evaluation using GPT-4o-mini.
 **`IXG_Full_Gemini-2.0-flash.py`** — Full IXG next-token evaluation using Gemini-2.0-Flash.
