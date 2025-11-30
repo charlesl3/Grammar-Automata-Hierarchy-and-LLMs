@@ -37,9 +37,13 @@ A minimal collection of scripts for testing LLM behavior on grammar and automata
 ## IXG/ — Full IXG Evaluation Scripts
 
 **`IXG_Full_GPT4oMini.py`** — Full IXG next-token evaluation using GPT-4o-mini.
+
 **`IXG_Full_Gemini-2.0-flash.py`** — Full IXG next-token evaluation using Gemini-2.0-Flash.
+
 **`IXG_Full_Llama-3.1-8B.py`** — Full IXG next-token evaluation using Llama-3.1-8B.
+
 **`IXG_Full_MistralNemo.py`** — Full IXG next-token evaluation using Mistral-Nemo.
+
 **`IXG_Full_mistral7b.py`** — Full IXG next-token evaluation using Mistral-7B.
 
 
