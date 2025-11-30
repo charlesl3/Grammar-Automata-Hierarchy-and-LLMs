@@ -1,18 +1,39 @@
-**`CFG_phi3.py`**   — Runs CFG next-token tests using Phi-3.  
+# Grammar-Automata-Hierarchy-and-LLMs
 
-**`CFG_gpt2.py`**   — Runs the same tests using GPT-2 for comparison.
+A minimal collection of scripts for testing LLM behavior on grammar and automata tasks.
 
-**`CFG_playground.py`**   — Runs CFG next-token/Q&A tests using Phi-3 or GPT-2; for single example trial only.  
+**`CFG_phi3.py`** — Runs CFG next-token tests using Phi-3.
 
-**`LoRA.py`**   — LoRA fine-tuning template
+**`CFG_gpt2.py`** — Runs CFG next-token tests using GPT-2.
 
-**`Q_ATask.py`**   — Q&A prompting + next token generation prompting of LLM
+**`CFG_playground.py`** — Runs single-trial CFG next-token/Q&A tests using Phi-3 or GPT-2.
 
-**`miniGPT_training.py`**   — manual mini-training of a decoder-only machine
+**`LoRA.py`** — Minimal LoRA fine-tuning template.
 
-**`sampling.py`**   — sampling methods exploration, such as greedy, temperature, top-q, top-k 
+**`Q_ATask.py`** — Q&A prompting + next-token generation prompting of LLM.
 
-**`Prefix_Next_generator.py`**   — given a grammar, helper functions to generate possible prefix sets (for future prompting) and allowed next tokens (as the ground truths)
+**`miniGPT_training.py`** — Minimal demonstration of decoder-only model training.
+
+**`sampling.py`** — Basic sampling methods: greedy, temperature, top-k, top-p.
+
+**`Prefix_Next_generator.py`** — Generates CFG prefixes and ground-truth allowed next tokens.
+
+---
+
+## `CFG/` — Full CFG Evaluation Scripts
+
+**`CFG_Full_GPT4oMini.py`** — Full CFG next-token evaluation using GPT-4o-mini.
+
+**`CFG_Full_Gemini-2.0-flash.py`** — Full CFG next-token evaluation using Gemini-2.0-Flash.
+
+**`CFG_Full_Llama-3.1-8B.py`** — Full CFG next-token evaluation using Llama-3.1-8B.
+
+**`CFG_Full_MistralNemo.py`** — Full CFG next-token evaluation using Mistral-Nemo.
+
+**`CFG_Full_mistral7b.py`** — Full CFG next-token evaluation using Mistral-7B.
+
+
+
 
 
 
