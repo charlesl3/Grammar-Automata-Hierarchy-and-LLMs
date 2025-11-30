@@ -268,3 +268,20 @@ if __name__ == "__main__":
 
     for r in results:
         print(r)
+
+"""
+=== Accuracy Summary ===
+Total predictions: 39
+Overall accuracy: 0.4872
+
+Accuracy by prefix length:
+  Length 0 : 0.4286
+  Length 1 : 1.0
+  Length 2 : 0.5714
+  Length 3 : 0.2857
+  Length 4 : 0.0
+  Length 5 : 0.6667
+  Length 6 : 0.3333
+  Length 7 : 0.0
+=========================
+"""
