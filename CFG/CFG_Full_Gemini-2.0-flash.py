@@ -257,3 +257,21 @@ if __name__ == "__main__":
     results = run_model(grammar, num_sentences=7)
     for r in results:
         print(r)
+
+"""
+=== Accuracy Summary (Gemini 1.5 Flash) ===
+Total predictions: 36
+Overall accuracy: 0.4167
+
+Accuracy by prefix length:
+  Length 0: 0.0
+  Length 1: 1.0
+  Length 2: 1.0
+  Length 3: 0.1429
+  Length 4: 0.0
+  Length 5: 0.0
+  Length 6: 0.0
+  Length 7: 0.0
+===========================================
+
+"""
